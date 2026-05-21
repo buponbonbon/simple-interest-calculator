@@ -40,6 +40,7 @@ public_users.get('/isbn/:isbn', async function (req, res) {
 public_users.get('/author/:author', async function (req, res) {
     try {
         const author = req.params.author;
+        // Logic: Extract values from the book object and filter by the author's name
         const response = await axios.get(`http://localhost:5000/author/${encodeURIComponent(author)}`);
         res.status(200).json(response.data);
     } catch (error) {
@@ -55,6 +56,7 @@ public_users.get('/author/:author', async function (req, res) {
 public_users.get('/title/:title', async function (req, res) {
     try {
         const title = req.params.title;
+        // Logic: Extract values and filter the book array based on exact title match
         const response = await axios.get(`http://localhost:5000/title/${encodeURIComponent(title)}`);
         res.status(200).json(response.data);
     } catch (error) {
